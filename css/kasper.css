@@ -1,3 +1,8 @@
+/* Start Variables */
+:root{
+    --main-color:#19c8fa;
+}
+/* End Variables */
 /* Start Global Rules */
 * {
     -webkit-box-sizing: border-box;
@@ -11,6 +16,7 @@ html{
 }
 body{
     font-family: 'Open Sans', sans-serif;
+    background-color: black;
 }
 ul{
     list-style: none;
@@ -40,3 +46,66 @@ ul{
     }
 }
 /* End Global Rules */
+/* Start Header */
+header{
+    
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+header .container::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    bottom: 0;
+    background-color: #a2a2a2;
+    width: calc(100% - 30px);
+    left: 15px;
+}
+header .logo img{
+    height: 40px;
+}
+header nav{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+header nav ul{
+    display: flex;
+}
+header nav ul li a{
+    padding: 40px 10px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+    position: relative;
+    z-index: 2;
+}
+header nav ul li a.active,
+header nav ul li a:hover{
+color: var(--main-color);
+border-bottom: solid var(--main-color) 1px;
+}
+header .form{
+
+    width: 40px;
+    height: 30px;
+    position: relative;
+    margin-left: 30px;
+    border-left: 1px solid white;
+}
+header .form i{
+    color: white;
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+/* End Header */
