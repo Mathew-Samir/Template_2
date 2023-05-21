@@ -1,6 +1,7 @@
 /* Start Variables */
 :root{
     --main-color:#19c8fa;
+    --transparent-color: rgb(15 116 143 / 70%);
 }
 /* End Variables */
 /* Start Global Rules */
@@ -48,13 +49,17 @@ ul{
 /* End Global Rules */
 /* Start Header */
 header{
-    
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 2;
 }
 header .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    min-height: 97px;
 }
 header .container::after{
     content: '';
@@ -74,8 +79,34 @@ header nav{
     align-items: center;
     justify-content: flex-end;
 }
+header nav .toggle-menu{
+    color: white;
+    font-size: 22px;
+}
+@media(min-width:768px){
+    header nav .toggle-menu{
+        display: none;
+    }
+}
 header nav ul{
     display: flex;
+}
+@media(max-width:767px){
+    header nav ul {
+        display: none;
+    }
+    header nav .toggle-menu:hover + ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgb(0 0 0 / 50%);
+    }
+    header nav ul li a {
+        padding: 15px !important;
+    }
 }
 header nav ul li a{
     padding: 40px 10px;
@@ -109,3 +140,45 @@ header .form i{
     right: 0;
 }
 /* End Header */
+/* Start Landing */
+.landing{
+    min-height: 100vh;
+    background-image: url('../images/landing.jpg');
+    background-size: cover;
+    background-color: #1f2021;
+    position: relative;
+}
+.landing .overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 60%);
+}
+.landing .text{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    padding: 50px;
+    background-color: var(--transparent-color);
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+}
+.landing .text .content{
+    max-width: 500px;
+}
+.landing .text .content h2 {
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.landing .text .content p{
+    font-size: 14px;
+    line-height: 2;
+}
+/* End Landing */
